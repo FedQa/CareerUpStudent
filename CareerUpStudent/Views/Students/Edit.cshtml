@@ -1,0 +1,61 @@
+﻿@model CareerUpStudent.Models.Student
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="StudCode" class="control-label"></label>
+                <input asp-for="StudCode" class="form-control" />
+                <span asp-validation-for="StudCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudGroup" class="control-label"></label>
+                <input asp-for="StudGroup" class="form-control" />
+                <span asp-validation-for="StudGroup" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobStatus" class="control-label"></label>
+                <input asp-for="JobStatus" class="form-control" />
+                <span asp-validation-for="JobStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CourseNumber" class="control-label"></label>
+                <input asp-for="CourseNumber" class="form-control" />
+                <span asp-validation-for="CourseNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EduForm" class="control-label"></label>
+                <input asp-for="EduForm" class="form-control" />
+                <span asp-validation-for="EduForm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlaceType" class="control-label"></label>
+                <input asp-for="PlaceType" class="form-control" />
+                <span asp-validation-for="PlaceType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdEduProgram" class="control-label"></label>
+                <select asp-for="IdEduProgram" class="form-control" asp-items="ViewBag.IdEduProgram"></select>
+                <span asp-validation-for="IdEduProgram" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

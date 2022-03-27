@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CareerUpStudent.Models.CareerUpStudentContext">
+    <Position X="3" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAIAAGAAAQAQAAAAAAAAAAAAEgAgABAAAQAMAAAIACA=</HashCode>
+      <FileName>Models\CareerUpStudentContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CareerUpStudent.Models.Company">
+    <Position X="5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAACAAAAAAAgAAAAAAAAAAQAAAAAAAEAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\Company.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CareerUpStudent.Models.CompanyReview">
+    <Position X="8.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAQEIAAAAAAAAIAAIAAAAABAAAAAAAAIAA=</HashCode>
+      <FileName>Models\CompanyReview.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CareerUpStudent.Models.EduProgram">
+    <Position X="6.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAQAAEAEgAIIAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\EduProgram.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CareerUpStudent.Models.ErrorViewModel">
+    <Position X="1" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ErrorViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CareerUpStudent.Models.Hr">
+    <Position X="6.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACACAAAAABAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Hr.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CareerUpStudent.Models.Reply">
+    <Position X="8.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAAAAQAAAAAACAAAAAAAAAAAABCAAAAgAAAAA=</HashCode>
+      <FileName>Models\Reply.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CareerUpStudent.Models.Resume">
+    <Position X="8.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAIAAAAAAAAQAAIAAAAAAAAAAQAAIAAA=</HashCode>
+      <FileName>Models\Resume.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CareerUpStudent.Models.Role">
+    <Position X="1" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACACAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Role.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CareerUpStudent.Models.Student">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACACAAAAAAAAAAAAAAAAAAAAAAEAAIIABMQACAgKA=</HashCode>
+      <FileName>Models\Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CareerUpStudent.Models.StudentReview">
+    <Position X="5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAQEIAAAAAAAQAAAIAAAAABAAAAAAAAIAA=</HashCode>
+      <FileName>Models\StudentReview.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CareerUpStudent.Models.University">
+    <Position X="6.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAQAAAAAABEAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\University.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CareerUpStudent.Models.User">
+    <Position X="1" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACACAAAAAIAIAQAAAAAARABIAAAAAAAQAAAAABAAA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CareerUpStudent.Models.Vacancy">
+    <Position X="10.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICACAAAAApAAAYEBAAAAQAAAIAEgAAAAAIAAAIICA=</HashCode>
+      <FileName>Models\Vacancy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CareerUpStudent.Models.AppDBContext.AppDBContext">
+    <Position X="5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AppDBContext\AppDBContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CareerUpStudent.Controllers.AccountController">
+    <Position X="1.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAABAAAIAAAABAAAAAAEQAAAAAAA=</HashCode>
+      <FileName>Controllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CareerUpStudent.Controllers.CompaniesController">
+    <Position X="4.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABBACAAAAAAAAAAAEAAEACAAEABAAAAAA=</HashCode>
+      <FileName>Controllers\CompaniesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CareerUpStudent.Controllers.HomeController">
+    <Position X="6.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAIAAAAQAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CareerUpStudent.Controllers.RepliesController">
+    <Position X="3" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABBACAAAAAAAAAAAFAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\RepliesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CareerUpStudent.Controllers.ResumesController">
+    <Position X="3.5" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABBACAAAAAAIAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ResumesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CareerUpStudent.Controllers.StudentsController">
+    <Position X="6" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABBACAAAAAAAAAAAEAAEACAAEABAAAAAA=</HashCode>
+      <FileName>Controllers\StudentsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CareerUpStudent.Controllers.VacanciesController">
+    <Position X="1.25" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAABBACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\VacanciesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

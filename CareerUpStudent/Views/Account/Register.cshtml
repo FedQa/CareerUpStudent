@@ -1,0 +1,62 @@
+﻿@model CareerUpStudent.ViewModels.RegisterViewModel
+@{
+    ViewData["Title"] = "Регистрация";
+}
+<style>
+    .reg {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+    }
+    .btn {
+        top: 50%;
+        left: 50%;
+        justify-content: center;
+        display: flex;
+    }
+    .display-3 {
+        float: left;
+        color: cornflowerblue;
+    }
+</style>
+<h1 class="display-3">Регистрация соискателя</h1>
+
+<div class="reg">
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <div class="col-auto my-1">
+                        <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                            <option value="1">Студент</option>
+                            <option value="2">HR</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email">Логин</label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Password">Пароль</label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword">Подтвердите пароль</label>
+                    <input asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-outline-primary">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
+</div>

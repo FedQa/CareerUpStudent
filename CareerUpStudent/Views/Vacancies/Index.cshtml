@@ -1,0 +1,91 @@
+﻿@model IEnumerable<CareerUpStudent.Models.Vacancy>
+<style>
+    .setWidth {
+        max-width: 100px;
+    }
+
+    .concat {
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        -ms-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: inherit;
+    }
+
+    .display-4 {
+        color: cornflowerblue;
+    }
+</style>
+@{
+    ViewData["Title"] = "Вакансии";
+}
+
+<h1 class="display-4">Поиск работы</h1>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Название вакансии: @Html.TextBox("SearchString")
+        Город: @Html.DropDownList("vacancyCity", "All")
+        Тип занятости: @Html.DropDownList("EmploymentType", "All")
+    </p>
+    <p>
+        Требуемый опыт: @Html.DropDownList("Experience", "All")
+        Зарплата: @Html.DropDownList("Salary", "All")
+    </p>
+    <p>
+        <button type="submit" class="btn btn-outline-primary btn-sm">Применить</button>
+    </p>
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th class="col-sm-2">Вакансия</th>
+            <th class="col-sm-4">О вакансии</th>
+            <th class="col-sm-1">Город</th>
+            <th class="col-sm-1">Требуемый опыт</th>
+            <th class="col-sm-1">Дата публикации</th>
+            <th class="col-sm-1">Тип занятости</th>
+            <th class="col-sm-2">Зарплата</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td class="setWidth concat">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExperienceRequired)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PublicationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmploymentType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salary)
+                </td>
+                <td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Подробности...</a>
+                    <a asp-action="Reply" asp-route-id="@item.Id">Откликнуться</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
