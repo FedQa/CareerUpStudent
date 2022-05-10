@@ -106,8 +106,6 @@ namespace CareerUpStudent.Controllers
         }
 
         // POST: Vacancies/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Description,City,ExperienceRequired,PublicationDate,EmploymentType,Responsibilities,Requirements,Conditions,Salary,IsActive,IdCompany,IdHr")] Vacancy vacancy)
@@ -116,6 +114,55 @@ namespace CareerUpStudent.Controllers
             {
                 _context.Add(vacancy);
                 await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["IdCompany"] = new SelectList(_context.Companies, "Id", "Name", vacancy.IdCompany);
+            return View(vacancy);
+        }
+        public async Task<IActionResult> Reply(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var vacancy = await _context.Vacancies.FindAsync(id);
+            if (vacancy == null)
+            {
+                return NotFound();
+            }
+            ViewData["IdCompany"] = new SelectList(_context.Companies, "Id", "Name", vacancy.IdCompany);
+            return LocalRedirectPermanent("~/Replies/Create/{id}");
+        }
+
+        // POST: Vacancies/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Reply(int id, Vacancy vacancy)
+        {
+            if (id != vacancy.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(vacancy);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!VacancyExists(vacancy.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdCompany"] = new SelectList(_context.Companies, "Id", "Name", vacancy.IdCompany);
@@ -140,8 +187,6 @@ namespace CareerUpStudent.Controllers
         }
 
         // POST: Vacancies/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,City,ExperienceRequired,PublicationDate,EmploymentType,Responsibilities,Requirements,Conditions,Salary,IsActive,IdCompany,IdHr")] Vacancy vacancy)

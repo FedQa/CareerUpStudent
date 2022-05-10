@@ -21,9 +21,25 @@ namespace CareerUpStudent.Controllers
         // GET: Replies
         public async Task<IActionResult> Index()
         {
-            var careerUpStudentContext = _context.Replies.Include(r => r.IdResumeNavigation).Include(r => r.IdVacancyNavigation);
-            return View(await careerUpStudentContext.ToListAsync());
+            List<Reply> replies = _context.Replies.ToList();
+            ReplyResume replies1 = new ReplyResume();
+            foreach(var rep in replies)
+            {
+                if (rep.IdResume == _context.Resumes.Where(e => e.IdStudent.Equals(1)).First().Id)
+                {
+                    replies1.ResumeId = rep.IdResume;
+                    replies1.Resume = _context.Resumes.Where(e => e.Id.Equals(rep.IdResume)).First();
+                    replies1.VacancyId = rep.IdVacancy;
+                    replies1.Vacancy = _context.Vacancies.Where(e => e.Id.Equals(rep.IdVacancy)).First();
+                    break;
+                }
+            }
+            return View(replies1);
         }
+        //public IActionResult Reply()
+        //{
+        //    return View();
+        //}
 
         // GET: Replies/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -46,29 +62,44 @@ namespace CareerUpStudent.Controllers
         }
 
         // GET: Replies/Create
-        public IActionResult Create()
+        public IActionResult Create(int id)
         {
-            ViewData["IdResume"] = new SelectList(_context.Resumes, "Id", "Name");
-            ViewData["IdVacancy"] = new SelectList(_context.Vacancies, "Id", "City");
-            return View();
+            Reply reply = new Reply();
+            reply.IdVacancy = id;
+            reply.IdResume = _context.Resumes.Where(e => e.IdStudent.Equals(1)).First().Id;
+            reply.AnswerDate = DateTime.Now;
+            reply.Answer = 1;
+            foreach (var response in _context.Replies)
+            {
+                if (reply.Id == response.Id)
+                    return RedirectToAction(nameof(Index));
+
+            }
+            _context.Add(reply);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
         }
 
         // POST: Replies/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Answer,AnswerDate,IdResume,IdVacancy")] Reply reply)
+        public async Task<IActionResult> Create(int id, Reply reply1)
         {
-            if (ModelState.IsValid)
+            Reply reply = new Reply();
+            reply.IdVacancy = id;
+            reply.IdResume = _context.Resumes.Where(e => e.IdStudent.Equals(1)).First().Id;
+            reply.AnswerDate = DateTime.Now;
+            reply.Answer = 1;
+            foreach(var response in _context.Replies)
             {
-                _context.Add(reply);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if(reply.Id == response.Id)
+                    return RedirectToAction(nameof(Index));
+                
             }
-            ViewData["IdResume"] = new SelectList(_context.Resumes, "Id", "Name", reply.IdResume);
-            ViewData["IdVacancy"] = new SelectList(_context.Vacancies, "Id", "City", reply.IdVacancy);
-            return View(reply);
+            _context.Add(reply);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Replies/Edit/5
@@ -90,8 +121,6 @@ namespace CareerUpStudent.Controllers
         }
 
         // POST: Replies/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Answer,AnswerDate,IdResume,IdVacancy")] Reply reply)
@@ -160,6 +189,57 @@ namespace CareerUpStudent.Controllers
         private bool ReplyExists(int id)
         {
             return _context.Replies.Any(e => e.Id == id);
+        }
+        public async Task<IActionResult> Reply(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var reply = await _context.Replies.FindAsync(id);
+            if (reply == null)
+            {
+                return NotFound();
+            }
+            ViewData["IdResume"] = new SelectList(_context.Resumes, "Id", "Name", reply.IdResume);
+            ViewData["IdVacancy"] = new SelectList(_context.Vacancies, "Id", "City", reply.IdVacancy);
+            return View(reply);
+        }
+
+        // POST: Replies/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Reply(int id, [Bind("Id,Answer,AnswerDate,IdResume,IdVacancy")] Reply reply)
+        {
+            if (id != reply.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(reply);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ReplyExists(reply.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["IdResume"] = new SelectList(_context.Resumes, "Id", "Name", reply.IdResume);
+            ViewData["IdVacancy"] = new SelectList(_context.Vacancies, "Id", "City", reply.IdVacancy);
+            return View(reply);
         }
     }
 }

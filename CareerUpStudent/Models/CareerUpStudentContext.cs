@@ -29,12 +29,13 @@ namespace CareerUpStudent.Models
         public virtual DbSet<University> Universities { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Vacancy> Vacancies { get; set; }
+        public DbSet<Favorites> FavoriteVacancies { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-FOLLW\\SQLSERVER;Initial Catalog=CareerUpStudent;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-461J672;Initial Catalog=CareerUpDb;Integrated Security=True");
             }
         }
 

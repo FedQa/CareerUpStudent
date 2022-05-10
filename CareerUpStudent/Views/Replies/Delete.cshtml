@@ -1,14 +1,18 @@
 ﻿@model CareerUpStudent.Models.Reply
-
+    <style>
+        .display-4 {
+            color: cornflowerblue;
+        }
+    </style>
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Удалить";
 }
 
-<h1>Delete</h1>
+<h1 class="display-4">Мои отклики</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Вы уверены что хотите убрать отклик?</h3>
 <div>
-    <h4>Reply</h4>
+    <h4>Отклик</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -23,23 +27,11 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.AnswerDate)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdResumeNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdResumeNavigation.Name)
-        </dd class>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdVacancyNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdVacancyNavigation.City)
-        </dd class>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-action="Index">Вернуться назад</a>
     </form>
 </div>

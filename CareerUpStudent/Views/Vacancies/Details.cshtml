@@ -1,84 +1,88 @@
 ﻿@model CareerUpStudent.Models.Vacancy
+    <style>
+        .display-4 {
+            color: cornflowerblue;
+        }
+    </style>
+    @{
+        ViewData["Title"] = "Подробности";
+    }
 
-@{
-    ViewData["Title"] = "Details";
-}
+    <h1 class="display-4">Подробности о вакансии</h1>
 
-<h1>Details</h1>
-
-<div>
-    <h4>Vacancy</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            Вакансия
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class="col-sm-2">
-            Компания
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.IdCompany)
-        </dd>
-        <dt class="col-sm-2">
-            О вакансии
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class="col-sm-2">
-            Город
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.City)
-        </dd>
-        <dt class="col-sm-2">
-            Требуемый опыт
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ExperienceRequired)
-        </dd>
-        <dt class="col-sm-2">
-            Дата публикации
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PublicationDate)
-        </dd>
-        <dt class="col-sm-2">
-            Тип занятости
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.EmploymentType)
-        </dd>
-        <dt class="col-sm-2">
-            Обязанности
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Responsibilities)
-        </dd>
-        <dt class="col-sm-2">
-            Требования
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Requirements)
-        </dd>
-        <dt class="col-sm-2">
-            Предлагаемые условия
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Conditions)
-        </dd>
-        <dt class="col-sm-2">
-            Зарплата
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Salary)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Reply">Откликнуться</a>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div>
+        <h4>Вакансия</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                Вакансия
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2">
+                Компания
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.IdCompany)
+            </dd>
+            <dt class="col-sm-2">
+                О вакансии
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt class="col-sm-2">
+                Город
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.City)
+            </dd>
+            <dt class="col-sm-2">
+                Требуемый опыт
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ExperienceRequired)
+            </dd>
+            <dt class="col-sm-2">
+                Дата публикации
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PublicationDate)
+            </dd>
+            <dt class="col-sm-2">
+                Тип занятости
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.EmploymentType)
+            </dd>
+            <dt class="col-sm-2">
+                Обязанности
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Responsibilities)
+            </dd>
+            <dt class="col-sm-2">
+                Требования
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Requirements)
+            </dd>
+            <dt class="col-sm-2">
+                Предлагаемые условия
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Conditions)
+            </dd>
+            <dt class="col-sm-2">
+                Зарплата
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Salary)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Reply">Откликнуться</a>
+        <a asp-action="Index">Вернуться назад</a>
+    </div>

@@ -1,36 +1,34 @@
 ﻿@model CareerUpStudent.Models.Resume
+    <style>
+        .display-4 {
+            color: cornflowerblue;
+        }
+    </style>
+    @{
+        ViewData["Title"] = "Подробности";
+    }
 
-@{
-    ViewData["Title"] = "Details";
-}
+    <h1 class="display-4">Подробности</h1>
 
-<h1>Details</h1>
-
-<div>
-    <h4>Resume</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Link)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Link)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdStudentNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdStudentNavigation.EduForm)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div>
+        <h4>Резюме</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                Название
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2">
+                Ссылка
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Link)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id">Изменить</a> 
+        <a asp-action="Index">Вернуться назад</a>
+    </div>

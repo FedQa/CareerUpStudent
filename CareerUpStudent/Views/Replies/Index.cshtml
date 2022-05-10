@@ -1,53 +1,52 @@
-﻿@model IEnumerable<CareerUpStudent.Models.Reply>
-
+﻿@model CareerUpStudent.Models.ReplyResume
+<style>
+    .display-4 {
+        color: cornflowerblue;
+    }
+</style>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Отклики";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<h1 class="display-4">Мои отклики</h1>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Answer)
+                Резюме
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AnswerDate)
+                Ссылка на резюме
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdResumeNavigation)
+                Вакансия
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdVacancyNavigation)
+                Компания
+            </th>
+            <th>
+                Дата отклика
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Answer)
+                Frontend developer
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AnswerDate)
+                https://perm.hh.ru/resume/4446bd2eff097ed8e00039ed1f6d4a45326336
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdResumeNavigation.Name)
+                Middle frontend developer / Frontend разработчик (home office)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdVacancyNavigation.City)
+                Xsolla
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                29.03.2022
             </td>
         </tr>
-}
     </tbody>
 </table>

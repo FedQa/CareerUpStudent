@@ -27,12 +27,12 @@
 {
     <p>
         Название вакансии: @Html.TextBox("SearchString")
-        Город: @Html.DropDownList("vacancyCity", "All")
-        Тип занятости: @Html.DropDownList("EmploymentType", "All")
+        Город: @Html.DropDownList("vacancyCity", "Все")
+        Тип занятости: @Html.DropDownList("EmploymentType", "Все")
     </p>
     <p>
-        Требуемый опыт: @Html.DropDownList("Experience", "All")
-        Зарплата: @Html.DropDownList("Salary", "All")
+        Требуемый опыт: @Html.DropDownList("Experience", "Все")
+        Зарплата: @Html.DropDownList("Salary", "Все")
     </p>
     <p>
         <button type="submit" class="btn btn-outline-primary btn-sm">Применить</button>
@@ -78,8 +78,8 @@
                 </td>
                 <td>
                 <td>
-                    <a asp-action="Details" asp-route-id="@item.Id">Подробности...</a>
-                    <a asp-action="Reply" asp-route-id="@item.Id">Откликнуться</a>
+                    <a asp-action="Details" asp-route-id="@item.Id">Подробности</a>
+                    <a asp-controller="Replies" asp-action="Create" asp-route-id="@item.Id">Откликнуться</a>
                 </td>
             </tr>
         }

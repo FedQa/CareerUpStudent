@@ -19,9 +19,29 @@ namespace CareerUpStudent.Controllers
         }
 
         // GET: Companies
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString, string companyRating)
         {
-            return View(await _context.Companies.ToListAsync());
+            var ratingList = new List<string>();
+            var ratingQry = from r in _context.Companies
+                            orderby r.Rating.ToString()
+                            select r.Rating.ToString();
+            ratingList.AddRange(ratingQry.Distinct());
+            ViewBag.companyRating = new SelectList(ratingList);
+
+
+
+
+            var companies = from c in _context.Companies
+                            select c;
+            if(!String.IsNullOrEmpty(searchString))
+            {
+                companies = companies.Where(c => c.Name.Contains(searchString));
+            }
+            if(!string.IsNullOrEmpty(companyRating))
+            {
+                companies = companies.Where(r => r.Rating.ToString() == companyRating);
+            }
+            return View(companies);
         }
 
         // GET: Companies/Details/5
@@ -49,8 +69,6 @@ namespace CareerUpStudent.Controllers
         }
 
         // POST: Companies/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Description,Rating")] Company company)
